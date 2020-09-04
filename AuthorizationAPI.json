@@ -1,0 +1,103 @@
+{
+  "swagger": "2.0",
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [
+          "Get an Authorization Code"
+        ],
+        "summary": "Obtain an authorization Code",
+        "description": "This API is to obtain an authorization code,which can later exchange to an OAuth2 access token.When you make this call using the Try-It button you will see a Request URL will be constructed. Copy that value and paste it into a browser. This will trigger the Authetication flow. Enter your axway username and then it'll redirect to consent-management page. When the consent flow is completed you will see browser taken to the redirect uri with authorization code as query parameters.",
+        "operationId": "GetAccountRequest",
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
+          "429": {
+            "description": "Too Many Requests"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "parameters": [
+          {
+            "name": "response_type",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": "The response type returned by this API.To obtain an authorization code,this value should be input as \"code\"."
+          },
+          {
+            "name": "client_id",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": "The consumer key of the application."
+          },
+          {
+            "name": "scope",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": "The scope on which the authorization code should generate.Multiple scopes can be set with space delimeter. Eg: scope=scope1 scope2  .For the demo use 'accounts' scope to invoke Account Information API and 'payments' scope to invoke Payments API"
+          },
+          {
+            "name": "redirect_uri",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": "The redirect uri.This has to match with the callback url entered  while creating the application."
+          },
+          {
+            "name": "state",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": "For AISP Flow-Example value 'YWlzcDozMTQ2' .This value is generated as Base64encoded(\"aisp\":AccountRequestId).The AccountRequestId generates when calling POST /account-initiations API resource of AccountsInformation API. <br><br> For PISP Flow-Example value 'UYWlzcDoyMTU2'.This value is generated as Base64encoded(\"pisp\":PaymentId).The PaymentId  generates when calling POST /payment-initiations API resource of Payments API"
+          },
+          {
+            "name": "request",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": "eg: eyJraWQiOiJrMmJkYyIsImFsZyI6IlJTMjU2In0.eyJtYXhfYWdlIjo4NjQwMCwic2NvcGUiOiJvcGVuaWQiLCJjbGFpbXMiOnsiaWRfdG9rZW4iOnsiYWNyIjp7ImVzc2VudGlhbCI6dHJ1ZX0sIm9wZW5iYW5raW5nX2ludGVudF9pZCI6eyJ2YWx1ZSI6IjIxNTYiLCJlc3NlbnRpYWwiOnRydWV9fSwidXNlcmluZm8iOnsiZW1haWxfdmVyaWZpZWQiOnsiZXNzZW50aWFsIjp0cnVlfSwibmlja25hbWUiOm51bGwsImdpdmVuX25hbWUiOnsiZXNzZW50aWFsIjp0cnVlfSwiZW1haWwiOnsiZXNzZW50aWFsIjp0cnVlfSwicGljdHVyZSI6bnVsbH19LCJpc3MiOiJzNkJoZFJrcXQzIiwicmVzcG9uc2VfdHlwZSI6ImNvZGUgaWRfdG9rZW4iLCJyZWRpcmVjdF91cmkiOiJodHRwczpcL1wvY2xpZW50LmV4YW1wbGUub3JnXC9jYiIsInN0YXRlIjoiYWYwaWZqc2xka2oiLCJub25jZSI6Im4tMFM2X1d6QTJNaiIsImNsaWVudF9pZCI6InM2QmhkUmtxdDMifQ.WJRZXtNcrnNr3PVDLpf5g6KWTPeuXwSrBmutIkQAJX_XytpBZAQkjjuYh_K3Oi64Vm_q-qG4FQiyvpYxeirA2WLFs3HNkBHttixaI2nQ4MPSAOAy9NPr72u1j1h4_i4JTKLzeOi1S9AXRlvuLxD0FXYZt-5eBbDxE7UnCNZmntqoHvFWe1d0bpLzEWLtKbS01F3rgTw4jUIHOl-Tnb8HgzZtuqnM-v2UmKvbioYbasQiprmGlrT8D5R40ozcHUFW2RFZi8ZYQiHVJ3VmjF_2WBuYZlJF71zsF4sV8nMyQwCHr4aUJU4hfTEXMRuK_fV19BBmLP233L1A6ZZWxD4xKw"
+          },
+          {
+            "name": "nonce",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": "eg: n-0S6_WzA2Mj"
+          }
+        ],
+        "x-auth-type": "None",
+        "x-throttling-tier": "Unlimited",
+        "produces": [
+          "text/html"
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "AuthorizeAPI",
+    "version": "v1.0.0",
+    "description": "API to obtain an Authorization Code which later can exchange to an OAuth2 token during AISP and PISP flow."
+  },
+  "securityDefinitions": {
+    "default": {
+      "type": "oauth2",
+      "authorizationUrl": "https://sandbox-openbanking.axway.com/authorize",
+      "flow": "implicit",
+      "scopes": {}
+    }
+  },
+  "basePath": "/AuthorizeAPI/v1.0.0",
+  "host": "sandbox-openbanking.axway.com",
+  "schemes": [
+    "https"
+  ]
+}
