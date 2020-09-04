@@ -4,7 +4,7 @@
     "/banks/{bank_id}/branches": {
       "get": {
         "tags": [
-          "Get the details of all the branches of a bank"
+          "Get the details of all the branches of a bank."
         ],
         "responses": {
           "200": {
