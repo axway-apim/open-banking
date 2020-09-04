@@ -1,2 +1,2 @@
-# bhf-demo
-Repo created for BHF Artifacts
+# Open Banking Demo
+Repo created for Open Banking Demo Artifacts
