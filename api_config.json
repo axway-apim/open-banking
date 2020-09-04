@@ -1,14 +1,14 @@
 {
 	"name": "PaymentInitiationAPI",
-	"path": "/v2",
+	"path": "/v1",
 	"state": "published",
-	"version": "1.0.2",
+	"version": "1.0.0",
 	"organization": "API Development",
-	"apiDefinition": "store.json",
-	"image": "openapi.png",
+	"apiDefinition": "PaymentInitiationAPI.json",
+	"image": "assets/images/PaymentInitiation.JPG",
 	"vhost": "208.67.129.24:8065",
 	"tags": {
-		"nextStage": ["prod"],
+		"nextStage": ["dev"],
 		"amplifyCentral": ["true"]
 	}
 }
