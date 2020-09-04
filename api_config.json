@@ -1,5 +1,5 @@
 {
-	"name": "Store",
+	"name": "PaymentInitiationAPI",
 	"path": "/v2",
 	"state": "published",
 	"version": "1.0.2",
