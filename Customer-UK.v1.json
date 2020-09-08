@@ -1,0 +1,81 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Customer UK",
+    "version": "1.0",
+    "description": "API to get/post information about Bank Customer in UK.",
+    "contact": {
+      "name": "Arun Dorairajan",
+      "url": "https://www.axway.com",
+      "email": "adorairajan@axway.com"
+    },
+    "termsOfService": "https://www.axway.com"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000",
+      "description": "sandbox"
+    }
+  ],
+  "paths": {},
+  "components": {
+    "schemas": {
+      "address": {
+        "title": "address",
+        "type": "object",
+        "description": "Model for UK Address",
+        "properties": {
+          "line1": {
+            "type": "string"
+          },
+          "line2": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          },
+          "county": {
+            "type": "string"
+          },
+          "postcode": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "line1"
+        ]
+      }
+    },
+    "securitySchemes": {
+      "OAuth": {
+        "type": "oauth2",
+        "flows": {
+          "clientCredentials": {
+            "tokenUrl": "https://phx-24.demo.axway.com:8089/api/oauth/token",
+            "refreshUrl": "https://phx-24.demo.axway.com:8089/api/oauth/token",
+            "scopes": {
+              "resource:READ": "read scope",
+              "resource:WRITE": "write scope"
+            }
+          },
+          "authorizationCode": {
+            "authorizationUrl": "https://phx-24.demo.axway.com:8089/api/oauth/authorize",
+            "tokenUrl": "https://phx-24.demo.axway.com:8089/api/oauth/token",
+            "refreshUrl": "https://phx-24.demo.axway.com:8089/api/oauth/token",
+            "scopes": {
+              "resource:READ": "read scope",
+              "resource:WRITE": "write scope"
+            }
+          }
+        },
+        "description": "OAuth 2 client cred and authorization code"
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "title": "customer",
+  "type": "object",
+  "x-tags": [
+    "customer"
+  ],
+  "properties": {
+    "firstname": {
+      "type": "string"
+    },
+    "lastname": {
+      "type": "string"
+    },
+    "sex": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "date of birth": {
+      "type": "string"
+    }
+  }
+}
