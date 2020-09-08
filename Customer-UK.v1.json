@@ -17,7 +17,198 @@
       "description": "sandbox"
     }
   ],
-  "paths": {},
+  "paths": {
+    "/customer": {
+      "get": {
+        "summary": "Get All Customer",
+        "tags": [
+          "customer"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/uk-customer"
+                  }
+                },
+                "examples": {
+                  "example-1": {
+                    "value": [
+                      {
+                        "customer": {
+                          "firstname": "Jane",
+                          "lastname": "Doe",
+                          "sex": "F",
+                          "phone": "9876543210",
+                          "date of birth": "01/01/1980"
+                        },
+                        "address": {
+                          "line1": "123 Main St",
+                          "line2": "1198",
+                          "city": "Phoenix",
+                          "state": "AZ",
+                          "county": "Maricopa",
+                          "postcode": "85054",
+                          "country": "USA"
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "headers": {}
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "operationId": "get-customer",
+        "description": "Operation to retreive all customers",
+        "security": [
+          {
+            "OAuth": [
+              "resource:READ"
+            ]
+          }
+        ]
+      },
+      "post": {
+        "summary": "Create New Customer",
+        "tags": [
+          "customer"
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "customerid": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "operationId": "post-customer",
+        "description": "Create a new Customer",
+        "security": [
+          {
+            "OAuth": [
+              "resource:WRITE"
+            ]
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/uk-customer"
+              }
+            }
+          },
+          "description": "Customer Request"
+        }
+      }
+    },
+    "/customer/{customerId}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "customerId",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "Get Customer with id",
+        "tags": [
+          "customer"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/uk-customer"
+                },
+                "examples": {}
+              }
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "operationId": "get-customer-customerId",
+        "description": "Get Customer by Id",
+        "security": [
+          {
+            "OAuth": [
+              "resource:READ"
+            ]
+          }
+        ]
+      }
+    }
+  },
   "components": {
     "schemas": {
       "address": {
@@ -49,7 +240,25 @@
         },
         "required": [
           "line1"
+        ],
+        "x-tags": [
+          "customer"
         ]
+      },
+      "uk-customer": {
+        "title": "uk-customer",
+        "type": "object",
+        "x-tags": [
+          "customer"
+        ],
+        "properties": {
+          "customer": {
+            "$ref": "./models/customer.v1.json"
+          },
+          "address": {
+            "$ref": "#/components/schemas/address"
+          }
+        }
       }
     },
     "securitySchemes": {
@@ -77,5 +286,18 @@
         "description": "OAuth 2 client cred and authorization code"
       }
     }
-  }
+  },
+  "security": [
+    {
+      "OAuth": [
+        "resource:READ",
+        "resource:WRITE"
+      ]
+    }
+  ],
+  "tags": [
+    {
+      "name": "customer"
+    }
+  ]
 }
