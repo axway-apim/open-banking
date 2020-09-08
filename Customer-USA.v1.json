@@ -22,7 +22,6 @@
       "get": {
         "summary": "get All Customer",
         "tags": [
-          "open-banking",
           "customer"
         ],
         "responses": {
@@ -31,7 +30,10 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/us-customer"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/us-customer"
+                  }
                 }
               }
             },
@@ -138,8 +140,7 @@
       "get": {
         "summary": "Get Customer with id",
         "tags": [
-          "customer",
-          "open-banking"
+          "customer"
         ],
         "responses": {
           "200": {
@@ -217,16 +218,14 @@
           "street1"
         ],
         "x-tags": [
-          "customer",
-          "open-banking"
+          "customer"
         ]
       },
       "us-customer": {
         "title": "us-customer",
         "type": "object",
         "x-tags": [
-          "customer",
-          "open-banking"
+          "customer"
         ],
         "properties": {
           "customer": {
@@ -275,9 +274,6 @@
   "tags": [
     {
       "name": "customer"
-    },
-    {
-      "name": "open-banking"
     }
   ]
 }
