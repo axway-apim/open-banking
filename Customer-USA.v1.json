@@ -20,7 +20,7 @@
   "paths": {
     "/customer": {
       "get": {
-        "summary": "get All Customer",
+        "summary": "Get All Customer",
         "tags": [
           "customer"
         ],
