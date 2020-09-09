@@ -6,9 +6,9 @@
       "name": "Arun Dorairajan",
       "url": "https://www.axway.com"
     },
-    "description": "API to get/post information about Bank Customer in USA.",
+    "description": "Swagger 2.0 specs API to get/post information about Bank Customer in USA.",
     "termsOfService": "https://www.axway.com",
-    "title": "Customer USA",
+    "title": "Customer USA Spec2",
     "version": "1.0"
   },
   "host": "localhost:3000",
