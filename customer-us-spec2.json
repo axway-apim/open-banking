@@ -11,10 +11,10 @@
     "title": "Customer USA Spec2",
     "version": "1.0"
   },
-  "host": "localhost:3000",
-  "basePath": "/",
+  "host": "axway-demo.stoplight.io",
+  "basePath": "/mocks/axway-demo/axway-banking/1409305",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/customer": {
@@ -22,7 +22,14 @@
         "produces": [
           "application/json"
         ],
-        "parameters": [],
+        "parameters": [
+          {
+            "type": "string",
+            "in": "header",
+            "name": "prefer",
+            "description": "dynamic=true or false"
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -82,6 +89,12 @@
             "schema": {
               "$ref": "#/definitions/us-customer"
             }
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "prefer",
+            "description": "dynamic=true or false"
           }
         ],
         "responses": {
@@ -140,7 +153,14 @@
         "produces": [
           "application/json"
         ],
-        "parameters": [],
+        "parameters": [
+          {
+            "type": "string",
+            "in": "header",
+            "name": "prefer",
+            "description": "dynamic=true or false"
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK",
