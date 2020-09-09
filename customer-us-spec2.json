@@ -1,0 +1,305 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "adorairajan@axway.com",
+      "name": "Arun Dorairajan",
+      "url": "https://www.axway.com"
+    },
+    "description": "API to get/post information about Bank Customer in USA.",
+    "termsOfService": "https://www.axway.com",
+    "title": "Customer USA",
+    "version": "1.0"
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/customer": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {},
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/us-customer"
+              },
+              "type": "array"
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth": [
+              "resource:READ"
+            ]
+          }
+        ],
+        "tags": [
+          "customer"
+        ],
+        "description": "Operation to retreive all customers",
+        "operationId": "get-customer",
+        "summary": "Get All Customer"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Customer Request",
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/us-customer"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": {
+              "properties": {
+                "customerid": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth": [
+              "resource:WRITE"
+            ]
+          }
+        ],
+        "tags": [
+          "customer"
+        ],
+        "description": "Create a new Customer",
+        "operationId": "post-customer",
+        "summary": "Create New Customer"
+      }
+    },
+    "/customer/{customerId}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "customerId",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/us-customer"
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth": [
+              "resource:READ"
+            ]
+          }
+        ],
+        "tags": [
+          "customer"
+        ],
+        "description": "Get Customer by Id",
+        "operationId": "get-customer-customerId",
+        "summary": "Get Customer with id"
+      }
+    }
+  },
+  "definitions": {
+    "address": {
+      "description": "Model for USA Address",
+      "properties": {
+        "city": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "county": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "street1": {
+          "type": "string"
+        },
+        "street2": {
+          "type": "string"
+        },
+        "zip": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "street1"
+      ],
+      "title": "address",
+      "type": "object",
+      "x-tags": [
+        "customer"
+      ]
+    },
+    "us-customer": {
+      "description": "Model for US Customer",
+      "properties": {
+        "address": {
+          "$ref": "#/definitions/address"
+        },
+        "customer": {
+          "properties": {
+            "date of birth": {
+              "type": "string"
+            },
+            "firstname": {
+              "type": "string"
+            },
+            "lastname": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "sex": {
+              "type": "string"
+            }
+          },
+          "title": "customer",
+          "type": "object",
+          "x-tags": [
+            "customer"
+          ]
+        }
+      },
+      "title": "us-customer",
+      "type": "object",
+      "x-examples": {
+        "example-1": {
+          "address": {
+            "city": "Phoenix",
+            "country": "USA",
+            "county": "Maricopa",
+            "state": "AZ",
+            "street1": "123 Main St",
+            "street2": "",
+            "zip": "85087"
+          },
+          "customer": {
+            "date of birth": "01/01/1990",
+            "firstname": "John",
+            "lastname": "Doe",
+            "phone": "1234567890",
+            "sex": "M"
+          }
+        }
+      },
+      "x-tags": [
+        "customer"
+      ]
+    }
+  },
+  "securityDefinitions": {
+    "OAuth": {
+      "description": "OAuth 2 client cred and authorization code",
+      "flow": "application",
+      "scopes": {
+        "resource:READ": "read scope",
+        "resource:WRITE": "write scope"
+      },
+      "tokenUrl": "https://phx-24.demo.axway.com:8089/api/oauth/token",
+      "type": "oauth2"
+    }
+  },
+  "security": [
+    {
+      "OAuth": [
+        "resource:READ",
+        "resource:WRITE"
+      ]
+    }
+  ],
+  "tags": [
+    {
+      "name": "customer"
+    }
+  ],
+  "x-components": {}
+}

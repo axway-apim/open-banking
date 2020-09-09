@@ -4,8 +4,8 @@
 	"state": "published",
 	"version": "1.0.0",
 	"organization": "Goldman Sachs",
-	"apiDefinition": "Customer-USA.v1.json",
-	"image": "assets/images/PaymentInitiation.JPG",
+	"apiDefinition": "customer-us-spec2.json",
+	"image": "assets/images/AccountAndTransaction.JPG",
 	"vhost": "208.67.129.24:8065",
 	"tags": {
 		"nextStage": ["dev"],
