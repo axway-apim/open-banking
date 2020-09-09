@@ -301,5 +301,11 @@
       "name": "customer"
     }
   ],
-  "x-components": {}
+  "x-components": {},
+  "produces": [
+    "application/json"
+  ],
+  "consumes": [
+    "application/json"
+  ]
 }
