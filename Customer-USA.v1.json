@@ -227,12 +227,33 @@
         "x-tags": [
           "customer"
         ],
+        "description": "Model for US Customer",
         "properties": {
           "customer": {
             "$ref": "./models/customer.v1.json"
           },
           "address": {
             "$ref": "#/components/schemas/address"
+          }
+        },
+        "x-examples": {
+          "example-1": {
+            "customer": {
+              "firstname": "John",
+              "lastname": "Doe",
+              "sex": "M",
+              "phone": "1234567890",
+              "date of birth": "01/01/1990"
+            },
+            "address": {
+              "street1": "123 Main St",
+              "street2": "",
+              "city": "Phoenix",
+              "state": "AZ",
+              "county": "Maricopa",
+              "zip": "85087",
+              "country": "USA"
+            }
           }
         }
       }
