@@ -90,7 +90,17 @@
               "resource:READ"
             ]
           }
-        ]
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        }
       },
       "post": {
         "summary": "Create New Customer",

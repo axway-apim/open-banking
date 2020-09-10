@@ -11,7 +11,38 @@
 		"nextStage": ["dev"],
 		"amplifyCentral": ["true"]
 	},
+  "securityProfiles":[
+      {
+         "name":"_default",
+         "isDefault":true,
+         "devices":[
+            {
+               "name":"API Key",
+               "type":"apiKey",
+               "order":0,
+               "properties":{
+                  "apiKeyFieldName":"KeyId",
+                  "takeFrom":"HEADER",
+                  "removeCredentialsOnSuccess":"false"
+               }
+            }
+         ]
+      }
+   ],
 	"clientOrganizations": [
 		"ALL"
-	]
+	],
+  "systemQuota":{
+      "restrictions":[
+         {
+            "method":"*",
+            "type":"throttle",
+            "config":{
+               "period":"hour",
+               "messages":666,
+               "per":2
+            }
+         }
+      ]
+   }
 }

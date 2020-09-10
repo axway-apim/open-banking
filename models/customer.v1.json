@@ -20,5 +20,15 @@
     "date of birth": {
       "type": "string"
     }
-  }
+  },
+  "x-examples": {
+    "example-1": {
+      "firstname": "John",
+      "lastname": "Doe",
+      "sex": "M",
+      "phone": "1234567890",
+      "date of birth": "10-10-1990"
+    }
+  },
+  "description": "Common Schema for Customer"
 }
