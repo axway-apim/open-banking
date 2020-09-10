@@ -268,6 +268,26 @@
           "address": {
             "$ref": "#/components/schemas/address"
           }
+        },
+        "x-examples": {
+          "example-1": {
+            "customer": {
+              "firstname": "Colin",
+              "lastname": "McGovern",
+              "sex": "Male",
+              "phone": "6789062345",
+              "date of birth": "10-10-1990"
+            },
+            "address": {
+              "line1": "154 Downing St",
+              "line2": "na",
+              "city": "Shire",
+              "state": "SU",
+              "county": "Surrey",
+              "postcode": "RH4559",
+              "country": "UK"
+            }
+          }
         }
       }
     },
