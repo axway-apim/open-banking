@@ -39,8 +39,8 @@
             "type":"throttle",
             "config":{
                "period":"hour",
-               "messages":66,
-               "per":2
+               "messages":10,
+               "per":1
             }
          }
       ]
