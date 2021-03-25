@@ -3,7 +3,7 @@
 	"path": "/v1",
 	"state": "published",
 	"version": "1.0.0",
-	"organization": "API Development",
+	"organization": "Wells Fargo",
 	"apiDefinition": "customer-us-spec2.json",
 	"image": "assets/images/AccountAndTransaction.JPG",
 	"vhost": "208.67.129.24:8065",
