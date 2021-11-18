@@ -8,7 +8,9 @@
 	"image": "assets/images/AccountAndTransaction.JPG",
 	"vhost": "208.67.129.24:8065",
 	"tags": {
-		"amplifyCentral": ["true"]
+		"amplifyCentral": ["true"],
+    "apiType": ["Customer"],
+    "publisher": ["axway"]
 	},
   "securityProfiles":[
      {
@@ -49,14 +51,25 @@
 	"applications": [{
 		"name": "Azure AD App"
 	}],
-  "systemQuota":{
+  "systemQuota": {
+		"restrictions": [{
+			"method": "*",
+			"type": "throttle",
+			"config": {
+				"period": "hour",
+				"messages": 60,
+				"per": 2
+			}
+		}]
+	},
+  "applicationQuota":{
       "restrictions":[
          {
             "method":"*",
-            "type":"throttle",
+            "type":"throttlemb",
             "config":{
                "period":"hour",
-               "messages":10,
+               "mb":55,
                "per":1
             }
          }
