@@ -10,7 +10,7 @@
 	"tags": {
 		"amplifyCentral": ["true"],
     "apiType": ["Customer"],
-    "publisher": ["axway"]
+    "publisher": ["fnbo"]
 	},
   "securityProfiles":[
      {
