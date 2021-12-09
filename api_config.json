@@ -6,11 +6,10 @@
 	"organization": "API Development",
 	"apiDefinition": "customer-us-spec2.json",
 	"image": "assets/images/AccountAndTransaction.JPG",
-	"vhost": "208.67.129.24:8065",
+	"vhost": "208.67.129.13:8065",
 	"tags": {
 		"amplifyCentral": ["true"],
-    "apiType": ["Customer"],
-    "publisher": ["fnbo"]
+    "apiType": ["Customer"]
 	},
   "securityProfiles":[
      {

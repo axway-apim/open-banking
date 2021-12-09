@@ -46,13 +46,13 @@
 					}
 				},
 				"url": {
-					"raw": "https://208.67.129.24:8065/v2/pet",
+					"raw": "https://208.67.129.13:8065/v2/pet",
 					"protocol": "https",
 					"host": [
 						"208",
 						"67",
 						"129",
-						"24"
+						"13"
 					],
 					"port": "8065",
 					"path": [
@@ -112,13 +112,13 @@
 					}
 				],
 				"url": {
-					"raw": "https://208.67.129.24:8065/v2/pet/findByStatus?status=available",
+					"raw": "https://208.67.129.13:8065/v2/pet/findByStatus?status=available",
 					"protocol": "https",
 					"host": [
 						"208",
 						"67",
 						"129",
-						"24"
+						"13"
 					],
 					"port": "8065",
 					"path": [
@@ -157,13 +157,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://208.67.129.24:8065/v2/store/inventory",
+					"raw": "https://208.67.129.13:8065/v2/store/inventory",
 					"protocol": "https",
 					"host": [
 						"208",
 						"67",
 						"129",
-						"24"
+						"13"
 					],
 					"port": "8065",
 					"path": [
@@ -205,13 +205,13 @@
 					}
 				},
 				"url": {
-					"raw": "https://208.67.129.24:8065/v2/store/order",
+					"raw": "https://208.67.129.13:8065/v2/store/order",
 					"protocol": "https",
 					"host": [
 						"208",
 						"67",
 						"129",
-						"24"
+						"13"
 					],
 					"port": "8065",
 					"path": [

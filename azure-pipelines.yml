@@ -6,7 +6,7 @@ parameters:
 - name: host
   displayName: API Manager Hostname
   type: string
-  default: 208.67.129.24
+  default: 208.67.129.13
 - name: username
   displayName: API Manager Username
   type: string
@@ -14,7 +14,7 @@ parameters:
 #- name: password
 #  displayName: API Manager Password
 #  type: string
-#  default: Space*BHF*117
+#  default: Space*ACS*13
 - name: returnCodeMapping
   displayName: CLI Return code mapping
   type: string
